@@ -1,0 +1,14 @@
+debug/main.o
+debug/mainwindow.o
+debug/menu.o
+debug/config.o
+debug/select.o
+debug/targetpath.o
+debug/about.o
+debug/qrc_icon.o
+debug/moc_mainwindow.o
+debug/moc_menu.o
+debug/moc_config.o
+debug/moc_select.o
+debug/moc_targetpath.o
+debug/moc_about.o
