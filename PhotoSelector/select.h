@@ -6,6 +6,8 @@
 #include <QKeyEvent>
 #include <QLabel>
 
+#include <Magick++.h>
+
 #include "targetpath.h"
 
 namespace Ui

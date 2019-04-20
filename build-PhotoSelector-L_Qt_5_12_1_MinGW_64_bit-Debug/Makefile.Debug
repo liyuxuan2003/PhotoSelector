@@ -16,10 +16,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -W -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -W -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\PhotoSelector -I. -IC:\Qt\5.12.1\mingw73_64\include -IC:\Qt\5.12.1\mingw73_64\include\QtWidgets -IC:\Qt\5.12.1\mingw73_64\include\QtGui -IC:\Qt\5.12.1\mingw73_64\include\QtANGLE -IC:\Qt\5.12.1\mingw73_64\include\QtCore -Idebug -I. -IC:\VulkanSDK\1.0.51.0\include -IC:\Qt\5.12.1\mingw73_64\mkspecs\win32-g++ 
+INCPATH       = -I..\PhotoSelector -I. -I"C:\Program Files\ImageMagick-7.0.8-Q16\include" -I"C:\Program Files\ImageMagick-7.0.8-Q16\include" -I"C:\Program Files\ImageMagick-7.0.8-Q16\include" -IC:\Qt\5.12.1\mingw73_64\include -IC:\Qt\5.12.1\mingw73_64\include\QtWidgets -IC:\Qt\5.12.1\mingw73_64\include\QtGui -IC:\Qt\5.12.1\mingw73_64\include\QtANGLE -IC:\Qt\5.12.1\mingw73_64\include\QtCore -Idebug -I. -IC:\VulkanSDK\1.0.51.0\include -IC:\Qt\5.12.1\mingw73_64\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -LC:\Qt\5.12.1\mingw73_64\lib C:\Qt\5.12.1\mingw73_64\lib\libQt5Widgetsd.a C:\Qt\5.12.1\mingw73_64\lib\libQt5Guid.a C:\Qt\5.12.1\mingw73_64\lib\libQt5Cored.a  -lmingw32 C:\Qt\5.12.1\mingw73_64\lib\libqtmaind.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.6.11-winx64\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 -LC:\Qt\5.12.1\mingw73_64\lib C:\Qt\5.12.1\mingw73_64\lib\libQt5Cored.a 
+LIBS        =        -L"C:\Program Files\ImageMagick-7.0.8-Q16\lib" -lCORE_RL_Magick++_ -lCORE_RL_MagickWand_ -lCORE_RL_MagickCore_ -LC:\Qt\5.12.1\mingw73_64\lib C:\Qt\5.12.1\mingw73_64\lib\libQt5Widgetsd.a C:\Qt\5.12.1\mingw73_64\lib\libQt5Guid.a C:\Qt\5.12.1\mingw73_64\lib\libQt5Cored.a  -lmingw32 C:\Qt\5.12.1\mingw73_64\lib\libqtmaind.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.6.11-winx64\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 -LC:\Qt\5.12.1\mingw73_64\lib C:\Qt\5.12.1\mingw73_64\lib\libQt5Cored.a 
 QMAKE         = C:\Qt\5.12.1\mingw73_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -285,10 +285,142 @@ debug/moc_mainwindow.cpp: ../PhotoSelector/mainwindow.h \
 		../PhotoSelector/select.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/QDebug \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/QKeyEvent \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Include.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-config.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-baseconfig.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/MagickCore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/methods.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/annotate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/draw.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colorspace.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/semaphore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/effect.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/morphology.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/layer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/locale_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/linked-list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/monitor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/profile.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/string_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantum.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resample.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/timer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/artifact.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/channel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cipher.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/client.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/coder.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colormap.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/configure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/constitute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/decorate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/delegate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distort.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distribute-cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/enhance.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/feature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fourier.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fx.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/gem.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/random_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/histogram.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/log.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/matrix.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/memory_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/module.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/version.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/mime.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/opencl.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/option.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/paint.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel-accessor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/policy.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/prepress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/registry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resource_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/segment.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/shear.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/signature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/splay-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/static.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/token.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/transform.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/threshold.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/utility.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/vision.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xml-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xwindow.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/MagickWand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/conjure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/convert.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/drawing-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/import.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wandcli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/operation.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-cli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/mogrify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-iterator.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wand-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Functions.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Drawable.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/TypeMetric.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Pixels.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/ResourceLimits.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/STL.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/CoderInfo.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Montage.h \
 		../PhotoSelector/targetpath.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.1/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\mainwindow.h -o debug\moc_mainwindow.cpp
+	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug/moc_menu.cpp: ../PhotoSelector/menu.h \
 		../PhotoSelector/about.h \
@@ -400,7 +532,7 @@ debug/moc_menu.cpp: ../PhotoSelector/menu.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qframe.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.1/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\menu.h -o debug\moc_menu.cpp
+	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\menu.h -o debug\moc_menu.cpp
 
 debug/moc_config.cpp: ../PhotoSelector/config.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QFrame \
@@ -523,7 +655,7 @@ debug/moc_config.cpp: ../PhotoSelector/config.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/qstandardpaths.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.1/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\config.h -o debug\moc_config.cpp
+	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\config.h -o debug\moc_config.cpp
 
 debug/moc_select.cpp: ../PhotoSelector/select.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QFrame \
@@ -634,6 +766,138 @@ debug/moc_select.cpp: ../PhotoSelector/select.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/QKeyEvent \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QLabel \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Include.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-config.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-baseconfig.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/MagickCore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/methods.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/annotate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/draw.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colorspace.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/semaphore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/effect.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/morphology.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/layer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/locale_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/linked-list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/monitor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/profile.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/string_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantum.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resample.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/timer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/artifact.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/channel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cipher.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/client.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/coder.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colormap.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/configure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/constitute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/decorate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/delegate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distort.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distribute-cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/enhance.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/feature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fourier.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fx.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/gem.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/random_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/histogram.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/log.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/matrix.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/memory_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/module.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/version.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/mime.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/opencl.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/option.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/paint.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel-accessor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/policy.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/prepress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/registry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resource_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/segment.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/shear.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/signature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/splay-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/static.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/token.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/transform.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/threshold.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/utility.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/vision.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xml-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xwindow.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/MagickWand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/conjure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/convert.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/drawing-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/import.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wandcli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/operation.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-cli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/mogrify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-iterator.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wand-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Functions.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Drawable.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/TypeMetric.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Pixels.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/ResourceLimits.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/STL.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/CoderInfo.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Montage.h \
 		../PhotoSelector/targetpath.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QDialog \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qdialog.h \
@@ -646,7 +910,7 @@ debug/moc_select.cpp: ../PhotoSelector/select.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/qfileinfo.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.1/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\select.h -o debug\moc_select.cpp
+	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\select.h -o debug\moc_select.cpp
 
 debug/moc_targetpath.cpp: ../PhotoSelector/targetpath.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QDialog \
@@ -762,7 +1026,7 @@ debug/moc_targetpath.cpp: ../PhotoSelector/targetpath.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/qfileinfo.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.1/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\targetpath.h -o debug\moc_targetpath.cpp
+	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\targetpath.h -o debug\moc_targetpath.cpp
 
 debug/moc_about.cpp: ../PhotoSelector/about.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QDialog \
@@ -871,7 +1135,7 @@ debug/moc_about.cpp: ../PhotoSelector/about.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.12.1/mingw73_64/bin/moc.exe
-	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\about.h -o debug\moc_about.cpp
+	C:\Qt\5.12.1\mingw73_64\bin\moc.exe $(DEFINES) --include D:/Program/Qt/PhotoSelector/build-PhotoSelector-L_Qt_5_12_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.12.1/mingw73_64/mkspecs/win32-g++ -ID:/Program/Qt/PhotoSelector/PhotoSelector -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -I"C:/Program Files/ImageMagick-7.0.8-Q16/include" -IC:/Qt/5.12.1/mingw73_64/include -IC:/Qt/5.12.1/mingw73_64/include/QtWidgets -IC:/Qt/5.12.1/mingw73_64/include/QtGui -IC:/Qt/5.12.1/mingw73_64/include/QtANGLE -IC:/Qt/5.12.1/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\PhotoSelector\about.h -o debug\moc_about.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1053,6 +1317,138 @@ debug/main.o: ../PhotoSelector/main.cpp ../PhotoSelector/mainwindow.h \
 		../PhotoSelector/select.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/QDebug \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/QKeyEvent \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Include.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-config.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-baseconfig.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/MagickCore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/methods.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/annotate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/draw.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colorspace.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/semaphore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/effect.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/morphology.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/layer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/locale_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/linked-list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/monitor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/profile.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/string_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantum.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resample.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/timer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/artifact.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/channel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cipher.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/client.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/coder.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colormap.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/configure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/constitute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/decorate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/delegate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distort.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distribute-cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/enhance.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/feature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fourier.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fx.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/gem.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/random_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/histogram.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/log.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/matrix.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/memory_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/module.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/version.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/mime.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/opencl.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/option.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/paint.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel-accessor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/policy.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/prepress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/registry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resource_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/segment.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/shear.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/signature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/splay-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/static.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/token.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/transform.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/threshold.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/utility.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/vision.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xml-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xwindow.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/MagickWand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/conjure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/convert.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/drawing-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/import.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wandcli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/operation.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-cli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/mogrify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-iterator.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wand-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Functions.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Drawable.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/TypeMetric.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Pixels.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/ResourceLimits.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/STL.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/CoderInfo.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Montage.h \
 		../PhotoSelector/targetpath.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\PhotoSelector\main.cpp
 
@@ -1193,6 +1589,138 @@ debug/mainwindow.o: ../PhotoSelector/mainwindow.cpp ../PhotoSelector/mainwindow.
 		../PhotoSelector/select.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/QDebug \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/QKeyEvent \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Include.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-config.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-baseconfig.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/MagickCore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/methods.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/annotate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/draw.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colorspace.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/semaphore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/effect.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/morphology.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/layer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/locale_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/linked-list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/monitor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/profile.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/string_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantum.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resample.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/timer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/artifact.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/channel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cipher.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/client.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/coder.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colormap.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/configure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/constitute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/decorate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/delegate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distort.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distribute-cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/enhance.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/feature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fourier.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fx.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/gem.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/random_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/histogram.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/log.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/matrix.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/memory_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/module.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/version.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/mime.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/opencl.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/option.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/paint.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel-accessor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/policy.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/prepress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/registry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resource_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/segment.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/shear.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/signature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/splay-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/static.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/token.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/transform.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/threshold.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/utility.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/vision.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xml-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xwindow.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/MagickWand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/conjure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/convert.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/drawing-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/import.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wandcli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/operation.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-cli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/mogrify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-iterator.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wand-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Functions.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Drawable.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/TypeMetric.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Pixels.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/ResourceLimits.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/STL.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/CoderInfo.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Montage.h \
 		../PhotoSelector/targetpath.h \
 		ui_mainwindow.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/QVariant \
@@ -1567,6 +2095,138 @@ debug/select.o: ../PhotoSelector/select.cpp ../PhotoSelector/select.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/QKeyEvent \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QLabel \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Include.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-config.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-baseconfig.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/MagickCore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/methods.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick-type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/annotate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/draw.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colorspace.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/semaphore.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/effect.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/morphology.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/layer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/locale_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/linked-list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/monitor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/profile.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/string_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantum.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resample.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/timer.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/type.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/artifact.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/channel.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/cipher.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/client.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/coder.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/colormap.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/configure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/constitute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/decorate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/delegate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magick.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distort.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/distribute-cache.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/enhance.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/feature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fourier.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/fx.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/gem.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/random_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/histogram.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/image-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/list.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/log.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/magic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/matrix.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/memory_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/module.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/version.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/mime.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/opencl.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/option.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/paint.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/pixel-accessor.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/policy.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/prepress.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/quantize.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/registry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/resource_.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/segment.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/shear.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/signature.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/splay-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/static.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/token.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/transform.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/threshold.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/utility.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/vision.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xml-tree.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickCore/xwindow.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/MagickWand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/method-attribute.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/animate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/compare.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/composite.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/conjure.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/convert.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/deprecate.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/display.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/drawing-wand.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/identify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/import.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wandcli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/operation.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-cli.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-property.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/magick-image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/mogrify.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/montage.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/pixel-iterator.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/stream.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/MagickWand/wand-view.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Functions.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Image.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Blob.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Color.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Drawable.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Geometry.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Exception.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Statistic.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/TypeMetric.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Pixels.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/ResourceLimits.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/STL.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/CoderInfo.h \
+		C:/Program\ Files/ImageMagick-7.0.8-Q16/include/Magick++/Montage.h \
 		../PhotoSelector/targetpath.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QDialog \
 		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qdialog.h \
@@ -1857,7 +2517,32 @@ debug/about.o: ../PhotoSelector/about.cpp ../PhotoSelector/about.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtCore/qfiledevice.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/qvector2d.h \
 		C:/Qt/5.12.1/mingw73_64/include/QtGui/qtouchdevice.h \
-		ui_about.h
+		ui_about.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtCore/QVariant \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QApplication \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qapplication.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtCore/qeventloop.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qguiapplication.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qinputmethod.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QLabel \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/QPlainTextEdit \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qplaintextedit.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qtextedit.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qtextdocument.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qtextcursor.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qtextformat.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qpen.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qabstracttextdocumentlayout.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qtextlayout.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qglyphrun.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qrawfont.h \
+		C:/Qt/5.12.1/mingw73_64/include/QtGui/qfontdatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\about.o ..\PhotoSelector\about.cpp
 
 debug/qrc_icon.o: debug/qrc_icon.cpp 

@@ -61,3 +61,18 @@ DISTFILES += \
 
 RESOURCES += \
     Image/icon.qrc
+
+unix|win32: LIBS += -L'C:/Program Files/ImageMagick-7.0.8-Q16/lib/' -lCORE_RL_Magick++_
+
+INCLUDEPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
+DEPENDPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
+
+unix|win32: LIBS += -L'C:/Program Files/ImageMagick-7.0.8-Q16/lib/' -lCORE_RL_MagickWand_
+
+INCLUDEPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
+DEPENDPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
+
+unix|win32: LIBS += -L'C:/Program Files/ImageMagick-7.0.8-Q16/lib/' -lCORE_RL_MagickCore_
+
+INCLUDEPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
+DEPENDPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'

@@ -23,6 +23,13 @@ Select::Select(QWidget *parent) :
 
     targetPath=new TargetPath(this);
     targetPath->hide();
+
+    /*
+    Magick::InitializeMagick(NULL);
+    Magick::Image image("100x100", "white");
+    image.pixelColor(49, 49, "red");
+    image.write("D:/red_pixel.png");
+    */
 }
 
 Select::~Select()

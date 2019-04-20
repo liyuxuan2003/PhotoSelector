@@ -42,7 +42,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::StartSelectPhoto()
 {
-    QStringList files = QFileDialog::getOpenFileNames(this,"选择需要挑选的图片","D:/","Images (*.jpg *.png)");
+    QStringList files = QFileDialog::getOpenFileNames(this,"选择需要挑选的图片","D:/","Images (*.JPG *.CR2)");
     if(files.size()==0)
         return;
     menu->hide();
