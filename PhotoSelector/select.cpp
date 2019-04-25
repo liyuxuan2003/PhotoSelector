@@ -1,5 +1,6 @@
 #include "select.h"
 #include "ui_select.h"
+#include <QProcess>
 
 Select::Select(QWidget *parent) :
     QFrame(parent),
@@ -24,12 +25,9 @@ Select::Select(QWidget *parent) :
     targetPath=new TargetPath(this);
     targetPath->hide();
 
-    /*
-    Magick::InitializeMagick(NULL);
-    Magick::Image image("100x100", "white");
-    image.pixelColor(49, 49, "red");
-    image.write("D:/red_pixel.png");
-    */
+    readRawFile=new ReadRawFile();
+
+    QString standardPictureLoc=QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
 }
 
 Select::~Select()
@@ -46,7 +44,7 @@ void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
     nowImgIndex=0;
     totalImgAmount=sorcePath.count();
 
-    img=QPixmap(sorcePath[nowImgIndex]);
+    img=QPixmap(ChangeToRealPath(sorcePath[nowImgIndex]));
     imgSize=img.size();
 
     ui->labelAmount->setText("照片总数："+QString::number(sorcePath.count()));
@@ -56,6 +54,8 @@ void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
     RefreshKeyMode();
 
     ResizeWithImg();
+
+    readRawFile->start();
 
     grabKeyboard();
 }
@@ -187,7 +187,7 @@ void Select::ChangeImage()
     if(nowImgIndex<0)
         nowImgIndex=totalImgAmount+nowImgIndex;
 
-    img=QPixmap(sorcePath[nowImgIndex]);
+    img=QPixmap(ChangeToRealPath(sorcePath[nowImgIndex]));
     imgSize=img.size();
     ResizeWithImg();
 
@@ -208,6 +208,27 @@ void Select::ActiveTargetPath(int id)
 QString Select::GetNameByPath(QString path)
 {
     return path.right(path.length()-path.lastIndexOf("/")-1);
+}
+
+QString Select::GetFormatByPath(QString path)
+{
+    return path.right(path.length()-path.lastIndexOf(".")-1);
+}
+
+QString Select::ChangeToRealPath(QString path)
+{
+    if(GetFormatByPath(path).toUpper()!="CR2")
+        return path;
+    QString standardPictureLoc=QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    QString tar=standardPictureLoc+"/PhotoSelectorTemp/"+GetNameByPath(path).left(GetNameByPath(path).lastIndexOf("."))+".JPG";
+    QString sor=path;
+    if(QFile::exists(tar)==true)
+        return tar;
+    QString command="magick convert "+sor+" "+tar;
+    command.replace("/","\\");
+    qDebug() << command;
+    qDebug() << QProcess::execute(command);
+    return tar;
 }
 
 void Select::on_pushButtonKeyEnter_clicked()

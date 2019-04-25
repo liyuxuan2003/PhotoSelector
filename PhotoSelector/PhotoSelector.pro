@@ -31,7 +31,8 @@ SOURCES += \
     config.cpp \
     select.cpp \
     targetpath.cpp \
-    about.cpp
+    about.cpp \
+    readrawfile.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     config.h \
     select.h \
     targetpath.h \
-    about.h
+    about.h \
+    readrawfile.h
 
 FORMS += \
         mainwindow.ui \

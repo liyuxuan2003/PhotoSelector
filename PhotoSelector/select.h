@@ -9,6 +9,7 @@
 #include <Magick++.h>
 
 #include "targetpath.h"
+#include "readrawfile.h"
 
 namespace Ui
 {
@@ -47,6 +48,8 @@ private:
 
     TargetPath* targetPath;
 
+    ReadRawFile* readRawFile;
+
     QPixmap img;
     QSize imgSize;
 
@@ -72,6 +75,10 @@ private:
     void MoveImage(int id);
 
     QString GetNameByPath(QString path);
+
+    QString GetFormatByPath(QString path);
+
+    QString ChangeToRealPath(QString path);
 
 signals:
     void BackToMenu();

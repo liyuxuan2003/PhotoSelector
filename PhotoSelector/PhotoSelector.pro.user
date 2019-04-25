@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.8.1, 2019-04-17T22:23:02. -->
+<!-- Written by QtCreator 4.8.1, 2019-04-24T11:48:19. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -298,8 +298,10 @@
      <value type="int">13</value>
      <value type="int">14</value>
     </valuelist>
-    <value type="int" key="PE.EnvironmentAspect.Base">0</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">1</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes">
+     <value type="QString">Path=C:\Qt\5.12.1\mingw73_64\lib;C:\Qt\5.12.1\mingw73_64\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files (x86)\Windows Live\Shared;C:\Users\liyux\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\liyux\AppData\Local\Programs\Python\Python37-32\;C:\Users\liyux\AppData\Local\Microsoft\WindowsApps;C:\Program Files\ImageMagick-7.0.8-Q16</value>
+    </valuelist>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">PhotoSelector</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/Program/Qt/PhotoSelector/PhotoSelector/PhotoSelector.pro</value>

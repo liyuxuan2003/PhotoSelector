@@ -5,6 +5,7 @@ release/config.o
 release/select.o
 release/targetpath.o
 release/about.o
+release/readrawfile.o
 release/qrc_icon.o
 release/moc_mainwindow.o
 release/moc_menu.o
@@ -12,3 +13,4 @@ release/moc_config.o
 release/moc_select.o
 release/moc_targetpath.o
 release/moc_about.o
+release/moc_readrawfile.o

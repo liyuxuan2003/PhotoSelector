@@ -3,11 +3,13 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QStandardPaths>
+#include <QFile>
 
 #include "menu.h"
 #include "config.h"
-#include <QApplication>
-#include <QDesktopWidget>
 
 #include "select.h"
 

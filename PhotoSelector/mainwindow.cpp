@@ -23,6 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(config,SIGNAL(LoadSelectFrame(QStringList&,QString*,bool*)),this,SLOT(LoadSelectFrame(QStringList&,QString*,bool*)));
     connect(config,SIGNAL(BackToMenu()),this,SLOT(BackToMenu()));
     connect(select,SIGNAL(BackToMenu()),this,SLOT(BackToMenu()));
+
+    QDir dir(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation));
+    dir.mkdir("PhotoSelectorTemp");
 }
 
 MainWindow::~MainWindow()
