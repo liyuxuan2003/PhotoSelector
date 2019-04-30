@@ -6,6 +6,7 @@ debug/select.o
 debug/targetpath.o
 debug/about.o
 debug/readrawfile.o
+debug/dcraw.o
 debug/qrc_icon.o
 debug/moc_mainwindow.o
 debug/moc_menu.o

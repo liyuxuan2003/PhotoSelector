@@ -1,6 +1,5 @@
 #include "select.h"
 #include "ui_select.h"
-#include <QProcess>
 
 Select::Select(QWidget *parent) :
     QFrame(parent),
@@ -27,12 +26,28 @@ Select::Select(QWidget *parent) :
 
     readRawFile=new ReadRawFile();
 
-    QString standardPictureLoc=QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    connect(readRawFile,SIGNAL(finished()),this,SLOT(RawFileProcessDone()));
+
+    /*  Test of dcraw...
+    qDebug() << QDateTime::currentDateTime();
+    int argc=3;
+    const char* argv[3];
+    argv[0]="dcraw";
+    argv[1]="-T";
+    argv[2]="D:/IMG_1835.CR2";
+    dcmain(argc,argv);
+    qDebug() << QDateTime::currentDateTime();
+    */
 }
 
 Select::~Select()
 {
     delete ui;
+    delete path;
+    delete isDisabled;
+    delete labelKeyMode;
+    delete keyPrefix;
+    delete readRawFile;
 }
 
 void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
@@ -43,9 +58,7 @@ void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
 
     nowImgIndex=0;
     totalImgAmount=sorcePath.count();
-
-    img=QPixmap(ChangeToRealPath(sorcePath[nowImgIndex]));
-    imgSize=img.size();
+    rawFileProcessIndex=0;
 
     ui->labelAmount->setText("照片总数："+QString::number(sorcePath.count()));
     ui->labelNowId->setText("当前照片编号："+QString::number(nowImgIndex+1));
@@ -53,11 +66,33 @@ void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
 
     RefreshKeyMode();
 
-    ResizeWithImg();
+    bool haveRawFile=false;
+    for(int i=0;i<=totalImgAmount;i++)
+    {
+        if(GetFormatByPath(sorcePath[i]).toUpper()=="CR2")
+        {
+            haveRawFile=true;
+            break;
+        }
+    }
 
-    readRawFile->start();
-
-    grabKeyboard();
+    if(haveRawFile==false)
+    {
+        img=QPixmap(ChangeToRealPath(sorcePath[nowImgIndex]));
+        imgSize=img.size();
+        ResizeWithImg();
+        grabKeyboard();
+    }
+    else if(haveRawFile==true)
+    {
+        rawFileInitPoint=std::min(10,totalImgAmount)-1;
+        QString logText="";
+        logText.append("正在缓存RAW文件(1/"+QString::number(rawFileInitPoint+1)+")");
+        logText.append("\n\n");
+        logText.append("点击帮助获取该提示的含义!");
+        ui->plainTextEditLog->setPlainText(logText);
+        StartRawFileThread();
+    }
 }
 
 void Select::RefreshKeyMode()
@@ -95,23 +130,20 @@ void Select::ResizeWithImg()
         ui->labelImage->resize(QSize(ui->frameImage->height()*imgSize.width()/imgSize.height(),ui->frameImage->height()));
 
     ui->labelImage->move(QPoint(ui->frameImage->width()/2-ui->labelImage->width()/2,ui->frameImage->height()/2-ui->labelImage->height()/2));
-    QPixmap imgTmp=img.scaled(QSize(ui->labelImage->width(),ui->labelImage->height()));
-    ui->labelImage->setPixmap(imgTmp);
+    if(img.isNull()==false)
+    {
+        QPixmap imgTmp=img.scaled(QSize(ui->labelImage->width(),ui->labelImage->height()));
+        ui->labelImage->setPixmap(imgTmp);
+    }
 }
 
 void Select::keyPressEvent(QKeyEvent *ev)
 {
     if(ev->key()==Qt::Key_Right)
-    {
-        nowImgIndex++;
-        ChangeImage();
-    }
+        ChangeImage(1);
 
     if(ev->key()==Qt::Key_Left)
-    {
-        nowImgIndex--;
-        ChangeImage();
-    }
+        ChangeImage(-1);
 
     int keyId=-1;
     if(ev->key()==Qt::Key_Enter || ev->key()==Qt::Key_Return)
@@ -181,11 +213,31 @@ void Select::MoveImage(int id)
     }
 }
 
-void Select::ChangeImage()
+void Select::ChangeImage(int step)
 {
-    nowImgIndex%=totalImgAmount;
+    int backupImageIndex=nowImgIndex;
+    nowImgIndex+=step;
+    if(nowImgIndex>=totalImgAmount)
+    {
+        nowImgIndex=totalImgAmount-1;
+        return;
+    }
     if(nowImgIndex<0)
-        nowImgIndex=totalImgAmount+nowImgIndex;
+    {
+        nowImgIndex=0;
+        return;
+    }
+
+    if(CheckRawFileExist(sorcePath[nowImgIndex])==false)
+    {
+        QString logText="";
+        logText.append("RAW文件正在缓存...");
+        logText.append("\n\n");
+        logText.append("点击帮助获取该提示的含义!");
+        ui->plainTextEditLog->setPlainText(logText);
+        nowImgIndex=backupImageIndex;
+        return;
+    }
 
     img=QPixmap(ChangeToRealPath(sorcePath[nowImgIndex]));
     imgSize=img.size();
@@ -221,14 +273,65 @@ QString Select::ChangeToRealPath(QString path)
         return path;
     QString standardPictureLoc=QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
     QString tar=standardPictureLoc+"/PhotoSelectorTemp/"+GetNameByPath(path).left(GetNameByPath(path).lastIndexOf("."))+".JPG";
-    QString sor=path;
-    if(QFile::exists(tar)==true)
-        return tar;
-    QString command="magick convert "+sor+" "+tar;
-    command.replace("/","\\");
-    qDebug() << command;
-    qDebug() << QProcess::execute(command);
     return tar;
+}
+
+bool Select::CheckRawFileExist(QString path)
+{
+    if(GetFormatByPath(path).toUpper()!="CR2")
+        return true;
+    QString standardPictureLoc=QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    QString tar=standardPictureLoc+"/PhotoSelectorTemp/"+GetNameByPath(path).left(GetNameByPath(path).lastIndexOf("."))+".JPG";
+    if(QFile::exists(tar)==true)
+        return true;
+    return false;
+}
+
+void Select::RawFileProcessDone()
+{
+    qDebug() << "Raw File Process Done !";
+    if(rawFileProcessIndex<=rawFileInitPoint)
+        UpdateRawFileInit();
+    if(rawFileProcessIndex>=totalImgAmount-1)
+        return;
+    rawFileProcessIndex++;
+    StartRawFileThread();
+}
+
+void Select::UpdateRawFileInit()
+{
+    QString logText="";
+    if(rawFileProcessIndex<rawFileInitPoint)
+    {
+        logText.append("正在缓存RAW文件("+QString::number(rawFileProcessIndex+2)+"/"+QString::number(rawFileInitPoint+1)+")");
+        logText.append("\n\n");
+        logText.append("点击帮助获取该提示的含义!");
+        ui->plainTextEditLog->setPlainText(logText);
+    }
+    else if (rawFileProcessIndex==rawFileInitPoint)
+    {
+        logText.append("缓存完毕！");
+        logText.append("\n\n");
+        logText.append("现在可以开始挑选照片了！");
+        ui->plainTextEditLog->setPlainText(logText);
+        img=QPixmap(ChangeToRealPath(sorcePath[nowImgIndex]));
+        imgSize=img.size();
+        ResizeWithImg();
+        grabKeyboard();
+    }
+}
+
+void Select::StartRawFileThread()
+{
+    if(GetFormatByPath(sorcePath[rawFileProcessIndex])!="CR2" || CheckRawFileExist(sorcePath[rawFileProcessIndex])==true)
+    {
+        RawFileProcessDone();
+        return;
+    }
+    QString sor=sorcePath[rawFileProcessIndex];
+    QString tar=ChangeToRealPath(sorcePath[rawFileProcessIndex]);
+    readRawFile->SetFileToProcess(sor,tar);
+    readRawFile->start();
 }
 
 void Select::on_pushButtonKeyEnter_clicked()

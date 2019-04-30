@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QThread>
 #include <QDebug>
+#include <QStandardPaths>
+#include <QFile>
+#include <QProcess>
 
 class ReadRawFile : public QThread
 {
@@ -12,13 +15,14 @@ class ReadRawFile : public QThread
 public:
     ReadRawFile();
 
-    void SetFileToProgcess(QString file);
+    void SetFileToProcess(QString sor,QString tar);
 
 protected:
     virtual void run();
 
 private:
     QString rawFile;
+    QString rawFileExport;
 };
 
 #endif // READRAWFILE_H

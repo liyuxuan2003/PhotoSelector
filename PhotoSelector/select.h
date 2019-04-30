@@ -5,8 +5,12 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <QLabel>
+#include <QProcess>
+#include <QDateTime>
 
-#include <Magick++.h>
+#include <algorithm>
+
+#include "dcraw.h"
 
 #include "targetpath.h"
 #include "readrawfile.h"
@@ -29,6 +33,9 @@ public:
 protected:
     virtual void resizeEvent(QResizeEvent * event);
     virtual void keyPressEvent(QKeyEvent *ev);
+
+public slots:
+    void RawFileProcessDone();
 
 private slots:
     void on_pushButtonKeyEnter_clicked();
@@ -56,6 +63,9 @@ private:
     int nowImgIndex;
     int totalImgAmount;
 
+    int rawFileProcessIndex;
+    int rawFileInitPoint;
+
     QStringList sorcePath;
 
     QString* path;
@@ -70,7 +80,7 @@ private:
 
     void ActiveTargetPath(int id);
 
-    void ChangeImage();
+    void ChangeImage(int step);
 
     void MoveImage(int id);
 
@@ -79,6 +89,12 @@ private:
     QString GetFormatByPath(QString path);
 
     QString ChangeToRealPath(QString path);
+
+    bool CheckRawFileExist(QString path);
+
+    void StartRawFileThread();
+
+    void UpdateRawFileInit();
 
 signals:
     void BackToMenu();

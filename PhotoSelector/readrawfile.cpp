@@ -7,10 +7,14 @@ ReadRawFile::ReadRawFile()
 
 void ReadRawFile::run()
 {
-    qDebug() << "QThread Test !";
+    QString command="magick convert "+rawFile+" "+rawFileExport;
+    command.replace("/","\\");
+    QProcess::execute(command);
 }
 
-void ReadRawFile::SetFileToProgcess(QString file)
+void ReadRawFile::SetFileToProcess(QString sor,QString tar)
 {
-    rawFile=file;
+    rawFile=sor;
+    rawFileExport=tar;
 }
+

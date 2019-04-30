@@ -32,7 +32,8 @@ SOURCES += \
     select.cpp \
     targetpath.cpp \
     about.cpp \
-    readrawfile.cpp
+    readrawfile.cpp \
+    dcraw.c
 
 HEADERS += \
         mainwindow.h \
@@ -41,7 +42,8 @@ HEADERS += \
     select.h \
     targetpath.h \
     about.h \
-    readrawfile.h
+    readrawfile.h \
+    dcraw.h
 
 FORMS += \
         mainwindow.ui \
@@ -64,17 +66,9 @@ DISTFILES += \
 RESOURCES += \
     Image/icon.qrc
 
-unix|win32: LIBS += -L'C:/Program Files/ImageMagick-7.0.8-Q16/lib/' -lCORE_RL_Magick++_
+unix|win32: LIBS += -lwsock32
 
-INCLUDEPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
-DEPENDPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
+unix|win32: LIBS += -LC:/msys64/mingw64/lib/ -llibMagick++-7.Q16HDRI.dll
 
-unix|win32: LIBS += -L'C:/Program Files/ImageMagick-7.0.8-Q16/lib/' -lCORE_RL_MagickWand_
-
-INCLUDEPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
-DEPENDPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
-
-unix|win32: LIBS += -L'C:/Program Files/ImageMagick-7.0.8-Q16/lib/' -lCORE_RL_MagickCore_
-
-INCLUDEPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
-DEPENDPATH += 'C:/Program Files/ImageMagick-7.0.8-Q16/include'
+INCLUDEPATH += C:/msys64/mingw64/include/ImageMagick-7
+DEPENDPATH += C:/msys64/mingw64/include/ImageMagick-7

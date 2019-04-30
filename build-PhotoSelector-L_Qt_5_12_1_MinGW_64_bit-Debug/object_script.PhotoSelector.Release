@@ -6,6 +6,7 @@ release/select.o
 release/targetpath.o
 release/about.o
 release/readrawfile.o
+release/dcraw.o
 release/qrc_icon.o
 release/moc_mainwindow.o
 release/moc_menu.o
