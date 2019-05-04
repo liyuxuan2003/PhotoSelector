@@ -25,10 +25,16 @@
   <property name="windowTitle">
    <string>照片选择器</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Image/icon.qrc">
+    <normaloff>:/Icon/ProjectIcon128.ico</normaloff>:/Icon/ProjectIcon128.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="Image/icon.qrc"/>
+ </resources>
  <connections/>
 </ui>

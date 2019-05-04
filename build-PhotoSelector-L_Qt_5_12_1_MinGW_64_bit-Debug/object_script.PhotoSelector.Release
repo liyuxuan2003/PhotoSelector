@@ -7,6 +7,10 @@ release/targetpath.o
 release/about.o
 release/readrawfile.o
 release/dcraw.o
+release/helpselect.o
+release/findsamenamefile.o
+release/checkname.o
+release/deletetmp.o
 release/qrc_icon.o
 release/moc_mainwindow.o
 release/moc_menu.o
@@ -15,3 +19,7 @@ release/moc_select.o
 release/moc_targetpath.o
 release/moc_about.o
 release/moc_readrawfile.o
+release/moc_helpselect.o
+release/moc_findsamenamefile.o
+release/moc_checkname.o
+release/moc_deletetmp.o

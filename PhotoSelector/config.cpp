@@ -6,6 +6,9 @@ Config::Config(QWidget *parent) :
     ui(new Ui::Config)
 {
     ui->setupUi(this);
+
+    helpSelect=new HelpSelect(this);
+    helpSelect->hide();
 }
 
 Config::~Config()
@@ -119,4 +122,9 @@ void Config::on_pushButtonStart_clicked()
 void Config::on_pushButtonExit_clicked()
 {
     emit(BackToMenu());
+}
+
+void Config::on_pushButtonHelp_clicked()
+{
+    helpSelect->show();
 }

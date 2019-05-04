@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelpSelect</class>
+ <widget class="QDialog" name="HelpSelect">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>等线</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>帮助</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(64, 66, 68);
+color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QLabel" name="labelTitle">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>14</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>帮助 / Help</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEditHelp">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>551</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="lineWidth">
+    <number>1</number>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QPlainTextEdit::WidgetWidth</enum>
+   </property>
+   <property name="plainText">
+    <string>Q：这个软件的用途？
+
+A：照片选择器是一个用于高效挑选照片的软件。通过照片选择器对照片进行选择时，不再需要来回切换窗口进行文件的复制。软件提供了五个快捷键，可以分别指向五个不同的文件路径，当发现喜欢的照片时，只需要按下快捷键就可以直接将当前照片发送到设定的路径，免去了不必要的操作。
+
+
+Q：支持哪些格式？
+
+A：照片选择器支持JPG PNG，同时还支持佳能相机的RAW格式文件CR2。
+
+
+Q：如何翻阅照片？
+
+A：通过左右键可以向前向后翻阅照片。如果希望一次可以翻阅10张照片，请使用&quot;Page Up&quot;和“Page Down”。类似的，如果希望一次可以翻阅50张照片，请使用&quot;Home&quot;和&quot;End&quot;。
+
+
+Q：快捷键有哪些，怎么使用？
+
+A：快捷键包括回车，数字键1，数字键2，数字键3，数字键4。每一个快捷键可以分别指向一个文件路径，在选择照片时，只需要按下对应的快捷键，程序就会自动将照片发送到所设定的路径。
+
+
+Q：怎么设置快捷键的路径。
+
+A：在配置页面下，点击修改路径即可设置路径，如果你已经开始挑选照片，点击编辑快捷键也可以进行设置。
+
+
+Q：快捷键为什么显示已禁用？如何禁用快捷键？
+
+A：通过禁用部分多余快捷键，可以避免误触的发生。在配置页面下，勾选禁用该快捷键即可禁用。如果已经开始挑选照片，点击编辑快捷键可也以进行设置。程序默认只启用回车，数字键默认均被禁用。
+
+
+Q：日志提示“正在缓存图片(1/25)&quot; &quot;请耐心等待...&quot;是什么意思？
+
+A：照片选择器通过缓存照片的方式来减小翻阅照片时的卡顿。程序会首先强制缓存前25张照片，这个过程中用户是不能操作的。缓存的时间视格式会有所不同。如果读取的是JPG，缓存25张照片的时间大约在40秒左右。但如果读取的是RAW文件，缓存25张照片的时间将会达到125秒。前25张照片缓存结束后，可以开始查看照片，程序会继续缓存25张之后的照片。
+
+
+Q：日志提示”图片正在缓存，暂时无法查看“是什么意思？
+
+A：缓存虽然可以有效提高翻阅速度，但本身是个非常耗时的过程，尤其是对于RAW文件。如果你的翻阅速度大大快于程序的缓存速度，尝试翻阅到还未被缓存的照片，便会出现这个提示。强烈建议看到这个提示时，休息一会儿，十分钟足够程序缓存400张JPG文件或100张RAW文件。
+
+
+Q：缓存的文件保存在哪里？怎么清除缓存？
+
+A：缓存的文件保存在系统盘图片文件夹的PhotoSelectorTemp下，程序每次启动时会自动清除不需要的缓存。请不要尝试手动清除缓存，尤其是在程序运行时。请确保系统盘留有一定的空间，不然程序会因为无法缓存而出现异常。缓存并不是非常占用空间。1GB的存储空间足够缓存约500张照片。</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

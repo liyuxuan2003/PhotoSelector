@@ -33,7 +33,11 @@ SOURCES += \
     targetpath.cpp \
     about.cpp \
     readrawfile.cpp \
-    dcraw.c
+    dcraw.c \
+    helpselect.cpp \
+    findsamenamefile.cpp \
+    checkname.cpp \
+    deletetmp.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +47,11 @@ HEADERS += \
     targetpath.h \
     about.h \
     readrawfile.h \
-    dcraw.h
+    dcraw.h \
+    helpselect.h \
+    findsamenamefile.h \
+    checkname.h \
+    deletetmp.h
 
 FORMS += \
         mainwindow.ui \
@@ -51,7 +59,10 @@ FORMS += \
     config.ui \
     select.ui \
     targetpath.ui \
-    about.ui
+    about.ui \
+    helpselect.ui \
+    findsamenamefile.ui \
+    targetpath.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -61,7 +72,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     Image/Start.PNG \
     Image/Exit.PNG \
-    Image/ProjectIcon.PNG
+    Image/ProjectIcon.PNG \
+    Image/Help.PNG \
+    Image/ProjectIcon16.ico \
+    Image/ProjectIcon32.ico \
+    Image/ProjectIcon64.ico \
+    Image/ProjectIcon128.ico
 
 RESOURCES += \
     Image/icon.qrc

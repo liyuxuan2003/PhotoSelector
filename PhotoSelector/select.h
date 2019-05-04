@@ -13,7 +13,11 @@
 #include "dcraw.h"
 
 #include "targetpath.h"
+#include "helpselect.h"
 #include "readrawfile.h"
+#include "findsamenamefile.h"
+#include "checkname.h"
+#include "deletetmp.h"
 
 namespace Ui
 {
@@ -37,6 +41,10 @@ protected:
 public slots:
     void RawFileProcessDone();
 
+    void CheckDone(bool res);
+
+    void DeleteDone();
+
 private slots:
     void on_pushButtonKeyEnter_clicked();
 
@@ -50,12 +58,24 @@ private slots:
 
     void on_pushButtonExit_clicked();
 
+    void on_pushButtonHelp_clicked();
+
+    void on_pushButtonSource_clicked();
+
 private:
     Ui::Select *ui;
 
     TargetPath* targetPath;
 
+    HelpSelect* helpSelect;
+
     ReadRawFile* readRawFile;
+
+    FindSameNameFile* findSameNameFile;
+
+    CheckName* checkName;
+
+    DeleteTmp* deleteTmp;
 
     QPixmap img;
     QSize imgSize;
@@ -65,6 +85,8 @@ private:
 
     int rawFileProcessIndex;
     int rawFileInitPoint;
+
+    bool isShowProgressRate;
 
     QStringList sorcePath;
 
@@ -90,7 +112,9 @@ private:
 
     QString ChangeToRealPath(QString path);
 
-    bool CheckRawFileExist(QString path);
+    void ShowProgressRate();
+
+    bool CheckRawFileExist(int id,QString path);
 
     void StartRawFileThread();
 

@@ -5,4 +5,10 @@
         <file>Start.PNG</file>
         <file>Help.PNG</file>
     </qresource>
+    <qresource prefix="/Icon">
+        <file>ProjectIcon16.ico</file>
+        <file>ProjectIcon32.ico</file>
+        <file>ProjectIcon64.ico</file>
+        <file>ProjectIcon128.ico</file>
+    </qresource>
 </RCC>

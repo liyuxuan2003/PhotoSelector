@@ -25,3 +25,8 @@ void Menu::on_pushButtonAbout_clicked()
 {
     about->exec();
 }
+
+void Menu::on_pushButtonExit_clicked()
+{
+    QApplication::exit();
+}

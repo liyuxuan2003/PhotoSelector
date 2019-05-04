@@ -22,6 +22,8 @@ private slots:
 
     void on_pushButtonAbout_clicked();
 
+    void on_pushButtonExit_clicked();
+
 signals:
     void StartButtonSignal();
 

@@ -246,10 +246,10 @@ Makefile: ../PhotoSelector/PhotoSelector.pro C:/Qt/5.12.1/mingw73_64/mkspecs/win
 		C:/Qt/5.12.1/mingw73_64/mkspecs/features/yacc.prf \
 		C:/Qt/5.12.1/mingw73_64/mkspecs/features/lex.prf \
 		../PhotoSelector/PhotoSelector.pro \
-		C:/Qt/5.12.1/mingw73_64/lib/Qt5Widgets.prl \
-		C:/Qt/5.12.1/mingw73_64/lib/Qt5Gui.prl \
-		C:/Qt/5.12.1/mingw73_64/lib/Qt5Core.prl \
-		C:/Qt/5.12.1/mingw73_64/lib/qtmaind.prl
+		C:/msys64/mingw64/lib/Qt5Widgets.prl \
+		C:/msys64/mingw64/lib/Qt5Gui.prl \
+		C:/msys64/mingw64/lib/Qt5Core.prl \
+		C:/msys64/mingw64/lib/qtmaind.prl
 	$(QMAKE) -o Makefile ..\PhotoSelector\PhotoSelector.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/spec_pre.prf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/qdevice.pri:
@@ -434,10 +434,10 @@ C:/Qt/5.12.1/mingw73_64/mkspecs/features/exceptions.prf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/yacc.prf:
 C:/Qt/5.12.1/mingw73_64/mkspecs/features/lex.prf:
 ../PhotoSelector/PhotoSelector.pro:
-C:/Qt/5.12.1/mingw73_64/lib/Qt5Widgets.prl:
-C:/Qt/5.12.1/mingw73_64/lib/Qt5Gui.prl:
-C:/Qt/5.12.1/mingw73_64/lib/Qt5Core.prl:
-C:/Qt/5.12.1/mingw73_64/lib/qtmaind.prl:
+C:/msys64/mingw64/lib/Qt5Widgets.prl:
+C:/msys64/mingw64/lib/Qt5Gui.prl:
+C:/msys64/mingw64/lib/Qt5Core.prl:
+C:/msys64/mingw64/lib/qtmaind.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\PhotoSelector\PhotoSelector.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

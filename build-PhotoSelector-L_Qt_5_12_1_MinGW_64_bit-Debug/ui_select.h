@@ -57,7 +57,6 @@ public:
         frameInfo = new QFrame(Select);
         frameInfo->setObjectName(QString::fromUtf8("frameInfo"));
         frameInfo->setGeometry(QRect(0, 0, 250, 675));
-        frameInfo->setMinimumSize(QSize(0, 0));
         frameInfo->setStyleSheet(QString::fromUtf8("background-color: rgb(66, 66, 66);"));
         frameInfo->setFrameShape(QFrame::StyledPanel);
         frameInfo->setFrameShadow(QFrame::Raised);
@@ -181,9 +180,10 @@ public:
         plainTextEditLog = new QPlainTextEdit(frameInfo);
         plainTextEditLog->setObjectName(QString::fromUtf8("plainTextEditLog"));
         plainTextEditLog->setGeometry(QRect(20, 480, 211, 101));
-        plainTextEditLog->setFont(font);
+        plainTextEditLog->setFont(font2);
         plainTextEditLog->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         plainTextEditLog->setReadOnly(true);
+        plainTextEditLog->setTextInteractionFlags(Qt::NoTextInteraction);
         labelKey4Title_2 = new QLabel(frameInfo);
         labelKey4Title_2->setObjectName(QString::fromUtf8("labelKey4Title_2"));
         labelKey4Title_2->setGeometry(QRect(20, 440, 121, 31));
@@ -198,7 +198,7 @@ public:
         labelImage = new QLabel(frameImage);
         labelImage->setObjectName(QString::fromUtf8("labelImage"));
         labelImage->setGeometry(QRect(0, 21, 950, 633));
-        labelImage->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        labelImage->setStyleSheet(QString::fromUtf8("background-color: rgb(120, 120, 120);"));
 
         retranslateUi(Select);
 

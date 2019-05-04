@@ -29,6 +29,7 @@ public:
     QLabel *labelAbout;
     QLabel *labelExtraInfo1;
     QLabel *labelExtraInfo2;
+    QLabel *labelVersion;
 
     void setupUi(QFrame *Menu)
     {
@@ -87,6 +88,14 @@ public:
         labelExtraInfo2->setGeometry(QRect(20, 530, 401, 20));
         labelExtraInfo2->setFont(font2);
         labelExtraInfo2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        labelVersion = new QLabel(Menu);
+        labelVersion->setObjectName(QString::fromUtf8("labelVersion"));
+        labelVersion->setGeometry(QRect(959, 532, 40, 20));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("\347\255\211\347\272\277"));
+        font3.setPointSize(14);
+        labelVersion->setFont(font3);
+        labelVersion->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         retranslateUi(Menu);
 
@@ -105,6 +114,7 @@ public:
         labelAbout->setText(QApplication::translate("Menu", "\345\205\263\344\272\216\351\241\271\347\233\256", nullptr));
         labelExtraInfo1->setText(QApplication::translate("Menu", "Designed and Developed by Li Yuxuan.", nullptr));
         labelExtraInfo2->setText(QApplication::translate("Menu", "Copyright \302\251 2019 Li Yuxuan   All Rights Reserved.", nullptr));
+        labelVersion->setText(QApplication::translate("Menu", "v1.0", nullptr));
     } // retranslateUi
 
 };

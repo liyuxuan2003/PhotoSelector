@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 
+#include "helpselect.h"
+
 namespace Ui
 {
     class Config;
@@ -47,8 +49,12 @@ private slots:
 
     void on_pushButtonExit_clicked();
 
+    void on_pushButtonHelp_clicked();
+
 private:
     Ui::Config *ui;
+
+    HelpSelect* helpSelect;
 
     void OnClickSetPath(QString prefix,QLabel* label,int id);
     void OnDisabledStateChange(QString prefix,QLabel* label,QPushButton* pushButton,int state,int id);

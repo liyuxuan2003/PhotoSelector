@@ -31,12 +31,6 @@
      <height>675</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(66, 66, 66);</string>
    </property>
@@ -492,7 +486,7 @@ color: rgb(0, 0, 0);</string>
     <property name="font">
      <font>
       <family>等线</family>
-      <pointsize>12</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -503,6 +497,9 @@ color: rgb(0, 0, 0);</string>
     </property>
     <property name="plainText">
      <string>~~~</string>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::NoTextInteraction</set>
     </property>
    </widget>
    <widget class="QLabel" name="labelKey4Title_2">
@@ -556,7 +553,7 @@ color: rgb(0, 0, 0);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(120, 120, 120);</string>
     </property>
     <property name="text">
      <string/>

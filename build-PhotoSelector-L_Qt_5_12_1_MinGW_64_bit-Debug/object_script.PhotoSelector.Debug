@@ -7,6 +7,10 @@ debug/targetpath.o
 debug/about.o
 debug/readrawfile.o
 debug/dcraw.o
+debug/helpselect.o
+debug/findsamenamefile.o
+debug/checkname.o
+debug/deletetmp.o
 debug/qrc_icon.o
 debug/moc_mainwindow.o
 debug/moc_menu.o
@@ -15,3 +19,7 @@ debug/moc_select.o
 debug/moc_targetpath.o
 debug/moc_about.o
 debug/moc_readrawfile.o
+debug/moc_helpselect.o
+debug/moc_findsamenamefile.o
+debug/moc_checkname.o
+debug/moc_deletetmp.o

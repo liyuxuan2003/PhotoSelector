@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FindSameNameFile</class>
+ <widget class="QDialog" name="FindSameNameFile">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>620</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>等线</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>缓存中存在同名文件</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(64, 66, 68);
+color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QLabel" name="labelTitle">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>我们在缓存中发现了同名文件！</string>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::TextSelectableByMouse</set>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>581</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="plainText">
+    <string>首先请不要慌张，这是很正常的情况。
+
+出现这个提示可能有以下两种情况，我们需要你的协助来做出判断。
+
+1.缓存中的照片和本次打开的照片不仅文件名相同，而且确实为同一张照片。
+
+2.缓存中的照片和本次打开的照片仅仅是文件名相同，是两张完全不同的照片。
+
+对于情况1，我们将保留缓存，这些缓存可以节省本次照片选择的时间。
+
+对于情况2，我们将清除缓存，因为这些缓存是错误的，保留它们会导致这次照片选择出现紊乱。</string>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::NoTextInteraction</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInputImage">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>330</y>
+     <width>150</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelQuestion">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>260</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>请判断下方两张图片看起来是否一致？</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelInput">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>打开的照片</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelRead">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>300</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>缓存中的照片</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelReadImage">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>330</y>
+     <width>150</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonYes">
+   <property name="geometry">
+    <rect>
+     <x>354</x>
+     <y>330</y>
+     <width>251</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(166, 175, 216);
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>是，它们看起来是一样的！保留缓存！</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonNo">
+   <property name="geometry">
+    <rect>
+     <x>354</x>
+     <y>390</y>
+     <width>251</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(166, 175, 216);
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>不，它们看起来并不一样！清除缓存！</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

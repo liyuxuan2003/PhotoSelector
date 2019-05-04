@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //this->setFixedSize(1000,562);
+
     menu=new Menu(this);
     menu->move(QPoint(0,0));
     menu->show();
@@ -45,7 +47,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
 void MainWindow::StartSelectPhoto()
 {
-    QStringList files = QFileDialog::getOpenFileNames(this,"选择需要挑选的图片","D:/","Images (*.JPG *.CR2)");
+    QStringList files = QFileDialog::getOpenFileNames(this,"选择需要挑选的图片","D:/","Images (*.JPG *.PNG *.CR2)");
     if(files.size()==0)
         return;
     menu->hide();
@@ -60,6 +62,9 @@ void MainWindow::LoadSelectFrame(QStringList& sorcePath,QString* path,bool* isDi
     config->hide();
     select->show();
     select->Init(sorcePath,path,isDisabled);
+    //this->setFixedSize(QWIDGETSIZE_MAX,QWIDGETSIZE_MAX);
+    //this->setMinimumSize(1200,675);
+    //this->setMaximumSize(QWIDGETSIZE_MAX,QWIDGETSIZE_MAX);
     this->resize(QSize(1200,675));
     this->move(QPoint(QApplication::desktop()->availableGeometry().width()/2-this->width()/2,QApplication::desktop()->availableGeometry().height()/2-this->height()/2-20));
 }
@@ -70,4 +75,5 @@ void MainWindow::BackToMenu()
     select->hide();
     menu->show();
     this->resize(QSize(1000,562));
+    //this->setFixedSize(1000,562);
 }
