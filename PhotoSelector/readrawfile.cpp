@@ -11,7 +11,7 @@ void ReadRawFile::run()
         usleep(100);
     else
     {
-        QString command="magick convert "+rawFile+" -resize 2000 "+rawFileExport;
+        QString command="magick convert \""+rawFile+"\" -resize 2000 \""+rawFileExport+"\"";
         command.replace("/","\\");
         QProcess::execute(command);
     }

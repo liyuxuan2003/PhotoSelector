@@ -75,6 +75,10 @@ void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
     ui->labelNowId->setText("当前照片编号："+QString::number(nowImgIndex+1));
     ui->labelNowName->setText(sorcePath[nowImgIndex].right(sorcePath[nowImgIndex].length()-sorcePath[nowImgIndex].lastIndexOf("/")-1));
 
+    img=QPixmap(":/Resource/ProjectIcon.PNG");
+    imgSize=img.size();
+    ResizeWithImg();
+
     RefreshKeyMode();
 
     ui->plainTextEditLog->setPlainText("程序正在初始化，请稍等...");

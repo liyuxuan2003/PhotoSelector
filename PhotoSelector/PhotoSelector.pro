@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+RC_ICONS = Image/ProjectIcon128.ico
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -38,6 +39,8 @@ SOURCES += \
     findsamenamefile.cpp \
     checkname.cpp \
     deletetmp.cpp
+
+RC_FILE += version.rc
 
 HEADERS += \
         mainwindow.h \
@@ -77,7 +80,8 @@ DISTFILES += \
     Image/ProjectIcon16.ico \
     Image/ProjectIcon32.ico \
     Image/ProjectIcon64.ico \
-    Image/ProjectIcon128.ico
+    Image/ProjectIcon128.ico \
+    version.rc
 
 RESOURCES += \
     Image/icon.qrc
