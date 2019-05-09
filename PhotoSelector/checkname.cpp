@@ -23,7 +23,7 @@ void CheckName::run()
             QFile::remove(pathTmp1);
             QFile::remove(pathTmp2);
             QFile::copy(ChangeToRealPath(sorcePath[i]),pathTmp1);
-            QString command="magick convert "+sorcePath[i]+" -resize 2000 "+pathTmp2;
+            QString command="magick convert \""+sorcePath[i]+"\" -resize 2000 \""+pathTmp2+"\"";
             command.replace("/","\\");
             QProcess::execute(command);
             res=true;

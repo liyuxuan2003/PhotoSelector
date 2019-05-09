@@ -502,7 +502,7 @@ color: rgb(0, 0, 0);</string>
      <set>Qt::NoTextInteraction</set>
     </property>
    </widget>
-   <widget class="QLabel" name="labelKey4Title_2">
+   <widget class="QLabel" name="labelLogTitle">
     <property name="geometry">
      <rect>
       <x>20</x>
