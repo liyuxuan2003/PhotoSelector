@@ -8,6 +8,9 @@
 #include <QProcess>
 #include <QDateTime>
 
+#include <LiLibrary/LiFileName.h>
+#include <LiLibrary/LiEasyLayout.h>
+
 #include <algorithm>
 
 #include "dcraw.h"
@@ -18,6 +21,8 @@
 #include "findsamenamefile.h"
 #include "checkname.h"
 #include "deletetmp.h"
+
+#include "testthread.h"
 
 namespace Ui
 {
@@ -39,7 +44,7 @@ protected:
     virtual void keyPressEvent(QKeyEvent *ev);
 
 public slots:
-    void RawFileProcessDone();
+    void RawFileProcessDone(int code);
 
     void CheckDone(bool res);
 
@@ -69,7 +74,7 @@ private:
 
     HelpSelect* helpSelect;
 
-    ReadRawFile* readRawFile;
+    ReadRawFile** readRawFile;
 
     FindSameNameFile* findSameNameFile;
 
@@ -77,14 +82,19 @@ private:
 
     DeleteTmp* deleteTmp;
 
+    LiEasyLayout* l1;
+
     QPixmap img;
     QSize imgSize;
 
     int nowImgIndex;
     int totalImgAmount;
 
-    int rawFileProcessIndex;
+    int rawFileProcessFrontIndex;
+    int rawFileProcessBackIndex;
     int rawFileInitPoint;
+
+    bool* isProcessed;
 
     bool isShowProgressRate;
 
@@ -106,19 +116,17 @@ private:
 
     void MoveImage(int id);
 
-    QString GetNameByPath(QString path);
-
-    QString GetFormatByPath(QString path);
-
     QString ChangeToRealPath(QString path);
 
     void ShowProgressRate();
 
     bool CheckRawFileExist(int id,QString path);
 
-    void StartRawFileThread();
+    void StartRawFileThread(int code);
 
     void UpdateRawFileInit();
+
+    const int threadAmount=4;
 
 signals:
     void BackToMenu();

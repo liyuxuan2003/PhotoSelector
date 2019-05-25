@@ -4,6 +4,7 @@
         <file>ProjectIcon.PNG</file>
         <file>Start.PNG</file>
         <file>Help.PNG</file>
+        <file>StartRaw.PNG</file>
     </qresource>
     <qresource prefix="/Icon">
         <file>ProjectIcon16.ico</file>

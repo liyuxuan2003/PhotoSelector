@@ -7,15 +7,22 @@
 #include <QStandardPaths>
 #include <QFile>
 #include <QProcess>
+#include <QFile>
+
+#include <LiLibrary/LiFileName.h>
 
 class ReadRawFile : public QThread
 {
     Q_OBJECT
 
 public:
-    ReadRawFile();
+    ReadRawFile(int code);
 
-    void SetFileToProcess(QString sor,QString tar);
+    void Init();
+
+    void SetFileToProcess(QString sor,QString tar,int id,bool isRawFile);
+
+    int GetId();
 
 protected:
     virtual void run();
@@ -23,6 +30,17 @@ protected:
 private:
     QString rawFile;
     QString rawFileExport;
+    int id;
+    bool isRawFile;
+
+    int code;
+    bool flag;
+
+public slots:
+    void ProcessDoneSlots();
+
+signals:
+    void ProcessDoneSingals(int code);
 };
 
 #endif // READRAWFILE_H

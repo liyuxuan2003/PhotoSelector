@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>562</height>
+    <width>1200</width>
+    <height>675</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,15 +20,15 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>20</y>
-     <width>401</width>
-     <height>61</height>
+     <y>30</y>
+     <width>511</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>等线</family>
-     <pointsize>22</pointsize>
+     <pointsize>26</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -41,10 +41,10 @@
   <widget class="QLabel" name="labelStart">
    <property name="geometry">
     <rect>
-     <x>158</x>
-     <y>150</y>
+     <x>160</x>
+     <y>170</y>
      <width>401</width>
-     <height>61</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -57,13 +57,13 @@
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>打开照片</string>
+    <string>打开照片（普通图像）</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonStart">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>42</x>
      <y>100</y>
      <width>101</width>
      <height>101</height>
@@ -79,10 +79,10 @@
   <widget class="QLabel" name="labelExit">
    <property name="geometry">
     <rect>
-     <x>158</x>
-     <y>430</y>
+     <x>160</x>
+     <y>560</y>
      <width>401</width>
-     <height>61</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -101,8 +101,8 @@
   <widget class="QPushButton" name="pushButtonExit">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>380</y>
+     <x>42</x>
+     <y>490</y>
      <width>101</width>
      <height>101</height>
     </rect>
@@ -118,7 +118,7 @@
    <property name="geometry">
     <rect>
      <x>42</x>
-     <y>240</y>
+     <y>360</y>
      <width>101</width>
      <height>101</height>
     </rect>
@@ -134,9 +134,9 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>290</y>
+     <y>430</y>
      <width>401</width>
-     <height>61</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -156,7 +156,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>510</y>
+     <y>625</y>
      <width>401</width>
      <height>20</height>
     </rect>
@@ -178,7 +178,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>530</y>
+     <y>645</y>
      <width>401</width>
      <height>20</height>
     </rect>
@@ -194,6 +194,44 @@
    </property>
    <property name="text">
     <string>Copyright © 2019 Li Yuxuan   All Rights Reserved.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelStartRaw">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>300</y>
+     <width>401</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+     <pointsize>17</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>打开照片（RAW图像）</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonStartRaw">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>230</y>
+     <width>101</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/Resource/StartRaw.PNG);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

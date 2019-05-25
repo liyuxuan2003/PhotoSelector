@@ -7,7 +7,7 @@ DeleteTmp::DeleteTmp()
 
 void DeleteTmp::run()
 {
-    QString standardPictureLoc=QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    QString standardPictureLoc=StandardDir(QStandardPaths::PicturesLocation);
     QString tmp=standardPictureLoc+"/PhotoSelectorTemp";
     QDir dir(tmp);
     dir.setFilter(QDir::Files);

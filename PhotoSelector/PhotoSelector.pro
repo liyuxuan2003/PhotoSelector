@@ -38,7 +38,10 @@ SOURCES += \
     helpselect.cpp \
     findsamenamefile.cpp \
     checkname.cpp \
-    deletetmp.cpp
+    deletetmp.cpp \
+    testthread.cpp \
+    LiLibrary/LiFileName.cpp \
+    LiLibrary/LiEasyLayout.cpp
 
 RC_FILE += version.rc
 
@@ -54,7 +57,10 @@ HEADERS += \
     helpselect.h \
     findsamenamefile.h \
     checkname.h \
-    deletetmp.h
+    deletetmp.h \
+    testthread.h \
+    LiLibrary/LiFileName.h \
+    LiLibrary/LiEasyLayout.h
 
 FORMS += \
         mainwindow.ui \

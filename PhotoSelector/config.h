@@ -7,6 +7,9 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 
+#include <LiLibrary/LiFileName.h>
+#include <LiLibrary/LiEasyLayout.h>
+
 #include "helpselect.h"
 
 namespace Ui
@@ -23,6 +26,9 @@ public:
     ~Config();
 
     void Init(QStringList target);
+
+protected:
+    virtual void resizeEvent(QResizeEvent * event);
 
 private slots:
     void on_pushButtonKeyEnter_clicked();
@@ -55,6 +61,9 @@ private:
     Ui::Config *ui;
 
     HelpSelect* helpSelect;
+
+    LiEasyLayout* l1;
+    LiEasyLayout* l2;
 
     void OnClickSetPath(QString prefix,QLabel* label,int id);
     void OnDisabledStateChange(QString prefix,QLabel* label,QPushButton* pushButton,int state,int id);

@@ -8,6 +8,8 @@
 #include <QProcess>
 #include <QDebug>
 
+#include <LiLibrary/LiFileName.h>
+
 #include "findsamenamefile.h"
 
 class CheckName : public QThread

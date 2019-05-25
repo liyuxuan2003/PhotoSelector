@@ -9,6 +9,57 @@ Config::Config(QWidget *parent) :
 
     helpSelect=new HelpSelect(this);
     helpSelect->hide();
+
+    l1=new LiEasyLayout(NULL,height(),width(),LiEasyLayout::left);
+    l2=new LiEasyLayout(NULL,height(),width(),LiEasyLayout::right);
+
+    l1->AddUnit("Title");
+    l1->AddElementInUnit("Title",ui->labelTitle);
+
+    l1->AddUnit("TitleBasic");
+    l1->AddElementInUnit("TitleBasic",ui->labelTitleBasic);
+
+    l1->AddUnit("BasicInfo");
+    l1->AddElementInUnit("BasicInfo",ui->labelInfo1);
+    l1->AddElementInUnit("BasicInfo",ui->labelInfo2);
+
+    l1->AddUnit("Line1");
+    l1->AddElementInUnit("Line1",ui->line1);
+
+    l1->AddUnit("TitleConfig");
+    l1->AddElementInUnit("TitleConfig",ui->labelTitleConfig);
+
+    l1->AddUnit("Config");
+    l1->AddElementInUnit("Config",ui->labelKeyEnter);
+    l1->AddElementInUnit("Config",ui->pushButtonKeyEnter);
+    l1->AddElementInUnit("Config",ui->checkBoxKeyEnter);
+    l1->AddElementInUnit("Config",ui->labelKey1);
+    l1->AddElementInUnit("Config",ui->pushButtonKey1);
+    l1->AddElementInUnit("Config",ui->checkBoxKey1);
+    l1->AddElementInUnit("Config",ui->labelKey2);
+    l1->AddElementInUnit("Config",ui->pushButtonKey2);
+    l1->AddElementInUnit("Config",ui->checkBoxKey2);
+    l1->AddElementInUnit("Config",ui->labelKey3);
+    l1->AddElementInUnit("Config",ui->pushButtonKey3);
+    l1->AddElementInUnit("Config",ui->checkBoxKey3);
+    l1->AddElementInUnit("Config",ui->labelKey4);
+    l1->AddElementInUnit("Config",ui->pushButtonKey4);
+    l1->AddElementInUnit("Config",ui->checkBoxKey4);
+
+    l2->AddUnit("ButtonHelp");
+    l2->AddElementInUnit("ButtonHelp",ui->pushButtonHelp);
+    l2->AddElementInUnit("ButtonHelp",ui->labelHelp);
+
+    l2->AddUnit("ButtonExit");
+    l2->AddElementInUnit("ButtonExit",ui->pushButtonExit);
+    l2->AddElementInUnit("ButtonExit",ui->labelExit);
+
+    l2->AddUnit("ButtonStart");
+    l2->AddElementInUnit("ButtonStart",ui->pushButtonStart);
+    l2->AddElementInUnit("ButtonStart",ui->labelStart);
+
+    l1->LayoutConfigDone();
+    l2->LayoutConfigDone();
 }
 
 Config::~Config()
@@ -16,14 +67,24 @@ Config::~Config()
     delete ui;
 }
 
+void Config::resizeEvent(QResizeEvent * event)
+{
+    if(isEnabled()==true)
+    {
+        l1->ResizeWithEasyLayout(height(),width());
+        l2->ResizeWithEasyLayout(height(),width());
+    }
+
+}
+
 void Config::Init(QStringList target)
 {
-    QString p=target[0].left(target[0].lastIndexOf("/")+1);
+    QString p=GetDirByPath(target[0]);
     ui->labelInfo1->setText("待挑选的照片位于："+p);
     ui->labelInfo2->setText("待挑选的照片数量："+QString::number(target.size())+"张");
     sorcePath=target;
 
-    defaultPath=QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    defaultPath=StandardDir(QStandardPaths::PicturesLocation);
     for(int i=0;i<=4;i++)
     {
         path[i]=defaultPath;

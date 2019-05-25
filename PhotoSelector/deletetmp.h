@@ -8,6 +8,8 @@
 #include <QStandardPaths>
 #include <QDebug>
 
+#include <LiLibrary/LiFileName.h>
+
 class DeleteTmp : public QThread
 {
     Q_OBJECT

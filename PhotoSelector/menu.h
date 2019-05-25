@@ -5,6 +5,8 @@
 
 #include <QFrame>
 
+#include <LiLibrary/LiEasyLayout.h>
+
 namespace Ui {
 class Menu;
 }
@@ -17,6 +19,9 @@ public:
     explicit Menu(QWidget *parent = nullptr);
     ~Menu();
 
+protected:
+    virtual void resizeEvent(QResizeEvent * event);
+
 private slots:
     void on_pushButtonStart_clicked();
 
@@ -24,13 +29,19 @@ private slots:
 
     void on_pushButtonExit_clicked();
 
+    void on_pushButtonStartRaw_clicked();
+
 signals:
     void StartButtonSignal();
 
-private:
-    Ui::Menu *ui;
+    void StartButtonRawSignal();
 
-    About *about;
+private:
+    Ui::Menu* ui;
+
+    About* about;
+
+    LiEasyLayout* liEasyLayout;
 };
 
 #endif // MENU_H

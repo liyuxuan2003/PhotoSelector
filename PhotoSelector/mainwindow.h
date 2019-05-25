@@ -37,6 +37,8 @@ private:
 public slots:
     void StartSelectPhoto();
 
+    void StartSelectRawPhoto();
+
     void LoadSelectFrame(QStringList& sorcePath,QString* path,bool* isDisabled);
 
     void BackToMenu();
