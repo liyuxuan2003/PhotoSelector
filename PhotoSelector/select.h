@@ -127,6 +127,7 @@ private:
     void UpdateRawFileInit();
 
     const int threadAmount=4;
+    const int initNum=50;
 
 signals:
     void BackToMenu();

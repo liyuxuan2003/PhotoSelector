@@ -32,7 +32,7 @@ void ReadRawFile::run()
         }
         else if(isRawFile==true)
         {
-            QString command1="./dcraw.exe -T -h -w \""+rawFile+"\"";
+            QString command1="./dcraw-9-27-ms-64-bit.exe -T -h -w \""+rawFile+"\"";
             command1.replace("/","\\");
             QProcess::execute(command1);
 

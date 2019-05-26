@@ -171,7 +171,7 @@ void Select::UpdateRawFileInit()
         logText.append("请耐心等待...");
         ui->plainTextEditLog->setPlainText(logText);
     }
-    else if (rawFileProcessBackIndex-1==rawFileInitPoint)
+    else if (rawFileProcessBackIndex>rawFileInitPoint)
     {
         logText.append("现在可以开始挑选照片了！");
         logText.append("\n\n");
@@ -223,7 +223,7 @@ void Select::CheckDone(bool res)
 
 void Select::DeleteDone()
 {
-    rawFileInitPoint=std::min(50,totalImgAmount)-1;
+    rawFileInitPoint=std::min(initNum,totalImgAmount)-1;
     QString logText="";
     logText.append("正在缓存图片(1/"+QString::number(rawFileInitPoint+1)+")");
     logText.append("\n\n");
