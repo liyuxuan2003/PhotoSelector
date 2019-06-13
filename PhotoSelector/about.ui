@@ -153,7 +153,7 @@ border-color: rgb(64, 66, 68);</string>
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>v2.0</string>
+    <string>v2.4</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelProjectIcon">

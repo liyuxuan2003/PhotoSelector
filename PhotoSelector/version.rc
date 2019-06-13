@@ -7,8 +7,8 @@ IDI_ICON1 ICON "Image/ProjectIcon128.ico"
 #endif
 
 VS_VERSION_INFO VERSIONINFO
-    FILEVERSION 2,0,0,0
-    PRODUCTVERSION 2,0,0,0
+    FILEVERSION 2,4,0,0
+    PRODUCTVERSION 2,4,0,0
     FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
     FILEFLAGS VS_FF_DEBUG
@@ -24,8 +24,8 @@ VS_VERSION_INFO VERSIONINFO
             BLOCK "080404b0"
             BEGIN
                 VALUE "FileDescription", "PhotoSelector\0"
-                VALUE "FileVersion", "2.0.0.0\0"
-                VALUE "ProductVersion", "2.0\0"
+                VALUE "FileVersion", "2.4.0.0\0"
+                VALUE "ProductVersion", "2.4\0"
                 VALUE "LegalCopyright", "Copyright (c) 2019 Li Yuxuan   All Rights Reserved.\0"
                 VALUE "ProductName", "PhotoSelector\0"
            END
