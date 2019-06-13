@@ -45,7 +45,7 @@ Select::Select(QWidget *parent) :
 
     connect(deleteTmp,SIGNAL(DeleteDone()),this,SLOT(DeleteDone()));
 
-    l1=new LiEasyLayout(NULL,height(),width(),LiEasyLayout::left);
+    l1=new LiEasyLayout(0,height(),width(),LiEasyLayout::left,0.65f);
 
     l1->AddUnitWithOneElement("Amount",ui->labelAmount);
     l1->AddUnitWithOneElement("NowId",ui->labelNowId);
@@ -103,6 +103,8 @@ void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
     rawFileProcessBackIndex=0;
     rawFileProcessFrontIndex=0;
 
+    isInitDone=false;
+
     isShowProgressRate=false;
 
     isProcessed=new bool[totalImgAmount]{false};
@@ -115,7 +117,7 @@ void Select::Init(QStringList& sorcePath,QString* path,bool* isDisabled)
     imgSize=img.size();
     ResizeWithImg();
 
-    for(int i=0;i<4;i++)
+    for(int i=0;i<threadAmount;i++)
         readRawFile[i]->Init();
 
     RefreshKeyMode();
@@ -171,8 +173,9 @@ void Select::UpdateRawFileInit()
         logText.append("请耐心等待...");
         ui->plainTextEditLog->setPlainText(logText);
     }
-    else if (rawFileProcessBackIndex>rawFileInitPoint)
+    else if (rawFileProcessBackIndex>rawFileInitPoint && isInitDone==false)
     {
+        isInitDone=true;
         logText.append("现在可以开始挑选照片了！");
         logText.append("\n\n");
         logText.append("程序会继续进行缓存...");
@@ -254,9 +257,6 @@ void Select::resizeEvent(QResizeEvent* event)
 
     ui->frameInfo->resize(QSize(ui->frameInfo->width(),height()));
     ui->frameImage->resize(QSize(width()-ui->frameInfo->width(),height()));
-
-    ui->pushButtonExit->move(QPoint(ui->pushButtonExit->x(),ui->frameInfo->height()-82));
-    ui->pushButtonHelp->move(QPoint(ui->pushButtonHelp->x(),ui->frameInfo->height()-82));
 
     ResizeWithImg();
 

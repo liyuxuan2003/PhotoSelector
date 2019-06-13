@@ -10,7 +10,7 @@ Menu::Menu(QWidget *parent) :
     about=new About(this);
     about->hide();
 
-    liEasyLayout=new LiEasyLayout(NULL,height(),width(),LiEasyLayout::left);
+    liEasyLayout=new LiEasyLayout(0,height(),width(),LiEasyLayout::left,0.65f);
 
     liEasyLayout->AddUnit("Title");
     liEasyLayout->AddElementInUnit("Title",ui->labelTitle);

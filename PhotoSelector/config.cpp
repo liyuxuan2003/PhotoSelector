@@ -10,8 +10,8 @@ Config::Config(QWidget *parent) :
     helpSelect=new HelpSelect(this);
     helpSelect->hide();
 
-    l1=new LiEasyLayout(NULL,height(),width(),LiEasyLayout::left);
-    l2=new LiEasyLayout(NULL,height(),width(),LiEasyLayout::right);
+    l1=new LiEasyLayout(0,height(),width(),LiEasyLayout::left,0.65f);
+    l2=new LiEasyLayout(0,height(),width(),LiEasyLayout::right,0.65f);
 
     l1->AddUnit("Title");
     l1->AddElementInUnit("Title",ui->labelTitle);
@@ -74,7 +74,6 @@ void Config::resizeEvent(QResizeEvent * event)
         l1->ResizeWithEasyLayout(height(),width());
         l2->ResizeWithEasyLayout(height(),width());
     }
-
 }
 
 void Config::Init(QStringList target)

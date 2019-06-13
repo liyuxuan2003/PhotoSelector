@@ -36,7 +36,7 @@ class LiEasyLayout
 public:
     enum LayoutDirection{left,right};
 
-    LiEasyLayout(QWidget* startWidget,int height,int width,LayoutDirection direction);
+    LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li);
 
     int AddUnit(QString unitName);
 
@@ -52,6 +52,8 @@ public:
     void ResizeWithEasyLayout(int height,int width);
 
 private:
+    float li;
+
     std::vector<LiEasyLayoutUnit> easyLayout;
 
     std::map<QString,int> easyLayoutKey;
@@ -71,6 +73,9 @@ private:
     int widgetTotalHeight;
 
     int* gap;
+    float* ratio;
+
+    float ratioSum=0.0f;
 };
 
 #endif // LIEASYLAYOUT_H

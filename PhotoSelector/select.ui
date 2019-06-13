@@ -59,7 +59,7 @@
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>照片总数：10301040</string>
+     <string>照片总数：500</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelNowId">
@@ -81,7 +81,7 @@
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>当前照片编号：502000</string>
+     <string>当前照片编号：200</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelNowNameTitle">

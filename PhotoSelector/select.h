@@ -97,6 +97,7 @@ private:
     bool* isProcessed;
 
     bool isShowProgressRate;
+    bool isInitDone;
 
     QStringList sorcePath;
 

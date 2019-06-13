@@ -32,7 +32,13 @@ void ReadRawFile::run()
         }
         else if(isRawFile==true)
         {
-            QString command1="./dcraw-9-27-ms-64-bit.exe -T -h -w \""+rawFile+"\"";
+            /* Excerpt of dcraw help...
+             * -T Write TIFF instead of PPM.
+             * -h Half-size color image. [Much more faster!]
+             * -w Use camera white balance.
+             * -W Don't automatically brighten the image. [Or the bright of image will be really strange]
+             * -b <num> Adjust brightness (default = 1.0) */
+            QString command1="./dcraw-9-27-ms-64-bit.exe -T -h -w -W -b 2.0 \""+rawFile+"\"";
             command1.replace("/","\\");
             QProcess::execute(command1);
 

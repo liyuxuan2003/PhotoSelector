@@ -1,6 +1,6 @@
 #include <LiLibrary/LiEasyLayout.h>
 
-LiEasyLayout::LiEasyLayout(QWidget* startWidget,int height,int width,LayoutDirection direction)
+LiEasyLayout::LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li)
 {
     isConfigDone=false;
 
@@ -9,14 +9,15 @@ LiEasyLayout::LiEasyLayout(QWidget* startWidget,int height,int width,LayoutDirec
 
     lastUseUnit="";
 
-    if(startWidget!=NULL)
-        startPos=startWidget->y()+startWidget->height();
+    startPos=start;
 
     baseTotalHeight=height;
     baseTotalWidth=width;
     baseLayoutHeight=endPos-startPos;
 
     this->direction=direction;
+
+    this->li=li;
 }
 
 int LiEasyLayout::AddUnit(QString unitName)
@@ -86,11 +87,21 @@ void LiEasyLayout::LayoutConfigDone()
 
     widgetTotalHeight=0;
 
+    float avg=0;
     gap=new int[easyLayout.size()];
     for(int i=0;i<easyLayout.size();i++)
     {
         gap[i]=tmpPosArr[i+1]-(tmpPosArr[i]+tmpLenArr[i]);
         widgetTotalHeight+=easyLayout[i].unitSize;
+        avg+=(float)gap[i];
+    }
+    avg/=(float)easyLayout.size();
+
+    ratio=new float[easyLayout.size()];
+    for(int i=0;i<easyLayout.size();i++)
+    {
+        ratio[i]=(float)gap[i]-((float)gap[i]-avg)*li;
+        ratioSum+=ratio[i];
     }
 }
 
@@ -106,7 +117,8 @@ void LiEasyLayout::ResizeWithEasyLayout(int height,int width)
     int nowPos=startPos;
     for(int i=0;i<easyLayout.size();i++)
     {
-        nowPos+=gap[i]*(height*baseLayoutHeight/baseTotalHeight-widgetTotalHeight)/(baseLayoutHeight-widgetTotalHeight);
+        //nowPos+=gap[i]*(height*baseLayoutHeight/baseTotalHeight-widgetTotalHeight)/(baseLayoutHeight-widgetTotalHeight);
+        nowPos+=(gap[i]+(ratio[i]/ratioSum)*(float)(height-baseTotalHeight));
         easyLayout[i].base->move(easyLayout[i].base->x(),nowPos);
         for(int j=0;j<easyLayout[i].elements.size();j++)
         {
@@ -147,5 +159,5 @@ LiEasyLayoutUnit::LiEasyLayoutUnit()
 
 bool LiEasyLayoutUnit::cmp(LiEasyLayoutUnit p1, LiEasyLayoutUnit p2)
 {
-    return p1.base->y()<p2.base->y();
+    return p1.unitStart<p2.unitStart;
 }

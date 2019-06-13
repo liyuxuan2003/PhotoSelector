@@ -32,7 +32,7 @@ void CheckName::run()
             }
             else if(GetFormatByPath(sorcePath[i])=="CR2")
             {
-                QString command1="./dcraw-9-27-ms-64-bit.exe -T -h -w \""+sorcePath[i]+"\"";
+                QString command1="./dcraw-9-27-ms-64-bit.exe -T -h -w -W -b 2.0 \""+sorcePath[i]+"\"";
                 command1.replace("/","\\");
                 QProcess::execute(command1);
 
