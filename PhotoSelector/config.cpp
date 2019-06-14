@@ -10,41 +10,40 @@ Config::Config(QWidget *parent) :
     helpSelect=new HelpSelect(this);
     helpSelect->hide();
 
-    l1=new LiEasyLayout(0,height(),width(),LiEasyLayout::left,0.65f);
-    l2=new LiEasyLayout(0,height(),width(),LiEasyLayout::right,0.65f);
+    l1=new LiEasyLayout(0,height(),width(),LiEasyLayout::left,0.65f,0.5f,ui->labelTitle);
+    l2=new LiEasyLayout(0,height(),width(),LiEasyLayout::right,0.00f);
 
-    l1->AddUnit("Title");
-    l1->AddElementInUnit("Title",ui->labelTitle);
+    l1->AddUnitWithOneElement("Title",ui->labelTitle);
+    l1->AddUnitWithOneElement("TitleBasic",ui->labelTitleBasic);
+    l1->AddUnitWithOneElement("BasicInfo1",ui->labelInfo1);
+    l1->AddUnitWithOneElement("BasicInfo2",ui->labelInfo2);
+    l1->AddUnitWithOneElement("Line1",ui->line1);
+    l1->AddUnitWithOneElement("TitleConfig",ui->labelTitleConfig);
 
-    l1->AddUnit("TitleBasic");
-    l1->AddElementInUnit("TitleBasic",ui->labelTitleBasic);
+    l1->AddUnit("ConfigEnter");
+    l1->AddElementInUnit(ui->labelKeyEnter);
+    l1->AddElementInUnit(ui->pushButtonKeyEnter);
+    l1->AddElementInUnit(ui->checkBoxKeyEnter);
 
-    l1->AddUnit("BasicInfo");
-    l1->AddElementInUnit("BasicInfo",ui->labelInfo1);
-    l1->AddElementInUnit("BasicInfo",ui->labelInfo2);
+    l1->AddUnit("Key1");
+    l1->AddElementInUnit(ui->labelKey1);
+    l1->AddElementInUnit(ui->pushButtonKey1);
+    l1->AddElementInUnit(ui->checkBoxKey1);
 
-    l1->AddUnit("Line1");
-    l1->AddElementInUnit("Line1",ui->line1);
+    l1->AddUnit("Key2");
+    l1->AddElementInUnit(ui->labelKey2);
+    l1->AddElementInUnit(ui->pushButtonKey2);
+    l1->AddElementInUnit(ui->checkBoxKey2);
 
-    l1->AddUnit("TitleConfig");
-    l1->AddElementInUnit("TitleConfig",ui->labelTitleConfig);
+    l1->AddUnit("Key3");
+    l1->AddElementInUnit(ui->labelKey3);
+    l1->AddElementInUnit(ui->pushButtonKey3);
+    l1->AddElementInUnit(ui->checkBoxKey3);
 
-    l1->AddUnit("Config");
-    l1->AddElementInUnit("Config",ui->labelKeyEnter);
-    l1->AddElementInUnit("Config",ui->pushButtonKeyEnter);
-    l1->AddElementInUnit("Config",ui->checkBoxKeyEnter);
-    l1->AddElementInUnit("Config",ui->labelKey1);
-    l1->AddElementInUnit("Config",ui->pushButtonKey1);
-    l1->AddElementInUnit("Config",ui->checkBoxKey1);
-    l1->AddElementInUnit("Config",ui->labelKey2);
-    l1->AddElementInUnit("Config",ui->pushButtonKey2);
-    l1->AddElementInUnit("Config",ui->checkBoxKey2);
-    l1->AddElementInUnit("Config",ui->labelKey3);
-    l1->AddElementInUnit("Config",ui->pushButtonKey3);
-    l1->AddElementInUnit("Config",ui->checkBoxKey3);
-    l1->AddElementInUnit("Config",ui->labelKey4);
-    l1->AddElementInUnit("Config",ui->pushButtonKey4);
-    l1->AddElementInUnit("Config",ui->checkBoxKey4);
+    l1->AddUnit("Key4");
+    l1->AddElementInUnit(ui->labelKey4);
+    l1->AddElementInUnit(ui->pushButtonKey4);
+    l1->AddElementInUnit(ui->checkBoxKey4);
 
     l2->AddUnit("ButtonHelp");
     l2->AddElementInUnit("ButtonHelp",ui->pushButtonHelp);

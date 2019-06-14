@@ -20,6 +20,26 @@ LiEasyLayout::LiEasyLayout(int start,int height,int width,LayoutDirection direct
     this->li=li;
 }
 
+LiEasyLayout::LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li,float headOptimize,QWidget* startWidget)
+{
+    isConfigDone=false;
+
+    startPos=start+(float)(startWidget->y()-start)*headOptimize;
+    endPos=height;
+
+    lastUseUnit="";
+
+    startPos=start;
+
+    baseTotalHeight=height;
+    baseTotalWidth=width;
+    baseLayoutHeight=endPos-startPos;
+
+    this->direction=direction;
+
+    this->li=li;
+}
+
 int LiEasyLayout::AddUnit(QString unitName)
 {
     if(CheckIsCongfigDone()==true)

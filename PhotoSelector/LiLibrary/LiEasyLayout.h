@@ -37,6 +37,7 @@ public:
     enum LayoutDirection{left,right};
 
     LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li);
+    LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li,float headOptimize,QWidget* startWidget);
 
     int AddUnit(QString unitName);
 
