@@ -1,6 +1,6 @@
 #include <LiLibrary/LiEasyLayout.h>
 
-LiEasyLayout::LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li)
+LiEasyLayout::LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li,float headOptimize)
 {
     isConfigDone=false;
 
@@ -18,26 +18,13 @@ LiEasyLayout::LiEasyLayout(int start,int height,int width,LayoutDirection direct
     this->direction=direction;
 
     this->li=li;
-}
-
-LiEasyLayout::LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li,float headOptimize,QWidget* startWidget)
-{
-    isConfigDone=false;
-
-    startPos=start+(float)(startWidget->y()-start)*headOptimize;
-    endPos=height;
-
-    lastUseUnit="";
-
-    startPos=start;
-
-    baseTotalHeight=height;
-    baseTotalWidth=width;
-    baseLayoutHeight=endPos-startPos;
-
-    this->direction=direction;
-
-    this->li=li;
+    this->isNeedHeadOptimize=false;
+    this->headOptimize=1.0f;
+    if(headOptimize!=-1.0f && headOptimize>=0.0f)
+    {
+        this->isNeedHeadOptimize=true;
+        this->headOptimize=headOptimize;
+    }
 }
 
 int LiEasyLayout::AddUnit(QString unitName)
@@ -115,13 +102,28 @@ void LiEasyLayout::LayoutConfigDone()
         widgetTotalHeight+=easyLayout[i].unitSize;
         avg+=(float)gap[i];
     }
-    avg/=(float)easyLayout.size();
 
     ratio=new float[easyLayout.size()];
-    for(int i=0;i<easyLayout.size();i++)
+    if(isNeedHeadOptimize==true)
     {
-        ratio[i]=(float)gap[i]-((float)gap[i]-avg)*li;
-        ratioSum+=ratio[i];
+        ratio[0]=gap[0]*headOptimize;
+        avg=avg-ratio[0];
+        avg/=(easyLayout.size()-1);
+        ratioSum+=ratio[0];
+        for(int i=1;i<easyLayout.size();i++)
+        {
+            ratio[i]=(float)gap[i]-((float)gap[i]-avg)*li;
+            ratioSum+=ratio[i];
+        }
+    }
+    else if(isNeedHeadOptimize==false)
+    {
+        avg/=(easyLayout.size());
+        for(int i=0;i<easyLayout.size();i++)
+        {
+            ratio[i]=(float)gap[i]-((float)gap[i]-avg)*li;
+            ratioSum+=ratio[i];
+        }
     }
 }
 

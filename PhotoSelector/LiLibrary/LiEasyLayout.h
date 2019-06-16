@@ -36,8 +36,7 @@ class LiEasyLayout
 public:
     enum LayoutDirection{left,right};
 
-    LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li);
-    LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li,float headOptimize,QWidget* startWidget);
+    LiEasyLayout(int start,int height,int width,LayoutDirection direction,float li,float headOptimize=-1.0f);
 
     int AddUnit(QString unitName);
 
@@ -54,6 +53,9 @@ public:
 
 private:
     float li;
+
+    float headOptimize;
+    bool isNeedHeadOptimize;
 
     std::vector<LiEasyLayoutUnit> easyLayout;
 

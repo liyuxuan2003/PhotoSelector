@@ -10,8 +10,8 @@ Config::Config(QWidget *parent) :
     helpSelect=new HelpSelect(this);
     helpSelect->hide();
 
-    l1=new LiEasyLayout(0,height(),width(),LiEasyLayout::left,0.65f,0.5f,ui->labelTitle);
-    l2=new LiEasyLayout(0,height(),width(),LiEasyLayout::right,0.00f);
+    l1=new LiEasyLayout(0,height(),width(),LiEasyLayout::left,0.65f,0.5f);
+    l2=new LiEasyLayout(0,height(),width(),LiEasyLayout::right,0.0f);
 
     l1->AddUnitWithOneElement("Title",ui->labelTitle);
     l1->AddUnitWithOneElement("TitleBasic",ui->labelTitleBasic);
